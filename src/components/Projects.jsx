@@ -23,7 +23,19 @@ function Projects() {
       video: tlouVideo,
     },
     {
-      name: "Inventory Control App For Fritanga Businesses",
+      name: "Inventory Control App For Local Businesses",
+      date: "2025",
+      type: "iphone",
+      video: vibeVideo,
+    },
+    {
+      name: "Mini Website Generator For Local Businesses",
+      date: "2025",
+      type: "laptop",
+      video: vibeVideo,
+    },
+    {
+      name: "Personal Finance Tracker App (For Myself)",
       date: "2025",
       type: "iphone",
       video: vibeVideo,
@@ -73,6 +85,10 @@ function Projects() {
 
   return (
     <div className='mt-20 flex flex-col gap-10 font-light relative z-0'>
+      <div className='flex justify-between'>
+        <p>Featured Work</p>
+        <p className='text-sm text-[#777a81]'>Hover project title for demo</p>
+      </div>
       {projects.map((project, index) => (
         <div className='flex flex-col'>
           <div
@@ -96,36 +112,24 @@ function Projects() {
       {showMockup && hoveredProject && (
         <div
           ref={mockupRef}
-          className='fixed pointer-events-none transition-all duration-100 ease-out z-50 opacity-100'
+          className="fixed pointer-events-none transition-all duration-100 ease-out z-50 opacity-100 rounded-3xl overflow-hidden border border-white/10 backdrop-blur-md bg-neutral-900/50 shadow-xl"
           style={{
             left: position.x,
             top: position.y,
-            // width: type === 'laptop' ? '730px' : '351px',
-            // height: type === 'laptop' ? '650px' : '760px',
-            width: type === 'laptop' ? '914px' : '351px',
-            height: type === 'laptop' ? '490px' : '760px',
+            width: type === 'laptop' ? '864px' : '351px',
+            height: type === 'laptop' ? '480px' : '700px',
           }}
         >
-          {type === 'laptop' ? (
-            <video
-              src={hoveredProject.video}
-              autoPlay
-              muted
-              playsInline
-              loop
-              className='w-full h-full object-cover rounded-3xl shadow-xl'
-            />
-          ) : (
-            <video
-              src={hoveredProject.video}
-              autoPlay
-              muted
-              playsInline
-              loop
-              className='w-full h-full object-cover rounded-3xl shadow-xl'
-            />
-          )}
+          <video
+            src={hoveredProject.video}
+            autoPlay
+            muted
+            playsInline
+            loop
+            className="w-full h-full object-cover"
+          />
         </div>
+
       )}
     </div>
   );
